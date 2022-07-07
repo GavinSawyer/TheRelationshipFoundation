@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "therelationshipfoundationapp": {
+      "hosting": {
+        "TheRelationshipFoundation": [
+          "therelationshipfoundationapp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "therelationshipfoundationapp"
+  }
+}
