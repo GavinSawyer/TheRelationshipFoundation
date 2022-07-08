@@ -1,1 +1,51 @@
-<p>home works!</p>
+<section
+	[ngStyle.xs]="{'padding.px': 24}"
+	[ngStyle.sm]="{'padding.px': 48}"
+	[ngStyle.gt-sm]="{'padding.px': 96}">
+	<div
+		fxLayout="row"
+		[ngStyle.xs]="{'padding.px': 8}"
+		[ngStyle.sm]="{'padding.px': 16}"
+		[ngStyle.gt-sm]="{'padding.px': 32}">
+		<div fxLayout="column" fxFlex>
+			<div fxLayout="row">
+				<h1
+					fxLayout="column"
+					class="mat-display-2"
+					style="max-width: 14em;">
+					Building resilient communities through relationship education.
+				</h1>
+			</div>
+			<div
+				fxLayout="row"
+				fxLayoutGap="14px">
+				<a
+					href="https://static1.squarespace.com/static/620142ed6d02e10f8ee144df/t/629df89859198751adedd1a0/1654519976604/Healthy+Relationships+101+by+Michael+Jascz.pdf"
+					target="_blank"
+					mat-raised-button
+					color="accent">
+					<mat-icon fontSet="material-icons-round">
+						file_download
+					</mat-icon>
+					Healthy Relationships 101
+				</a>
+				<button
+					mat-raised-button
+					color="primary">
+					Donate
+				</button>
+			</div>
+		</div>
+	</div>
+	<div
+		fxLayout="row"
+		[ngStyle.xs]="{'padding.px': 8}"
+		[ngStyle.sm]="{'padding.px': 16}"
+		[ngStyle.gt-sm]="{'padding.px': 32}">
+		<mat-card
+			fxLayout="column"
+			fxFlex>
+			<img mat-card-image src="/assets/homepage.jpeg" alt="">
+		</mat-card>
+	</div>
+</section>

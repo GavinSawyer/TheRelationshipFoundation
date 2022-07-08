@@ -1,48 +1,92 @@
 <mat-sidenav-container>
 	<mat-sidenav-content>
-		<mat-toolbar>
+		<mat-toolbar class="mat-elevation-z8">
 			<div
 				fxLayout="row"
 				fxLayoutAlign="space-between"
-				style="width: 100%">
-				<div fxLayout="column">
-					<span>
+				style="width: 100%; height: 36px;">
+				<div fxLayout="row">
+					<mat-icon fontSet="material-icons-round">
+						language
+					</mat-icon>
+					<span
+						fxHide.lt-md>
 						The Relationship Foundation
 					</span>
 				</div>
 				<div
 					fxLayout="row"
-					fxLayoutGap="16px">
-					<div fxLayout="column">
-						<button
-							mat-button>
-							About
-						</button>
-					</div>
-					<div fxLayout="column">
-						<button
-							mat-button>
-							Resources
-						</button>
-					</div>
-					<div fxLayout="column">
-						<button
-							mat-button>
-							Contact
-						</button>
-					</div>
-					<div fxLayout="column">
-						<button
-							mat-raised-button
-							color="primary">
-							Donate
-						</button>
-					</div>
+					fxLayoutGap="14px">
+					<button mat-button>
+						About
+					</button>
+					<button mat-button>
+						Resources
+					</button>
+					<button mat-button>
+						Contact
+					</button>
+					<button
+						mat-raised-button
+						color="primary">
+						Donate
+					</button>
 				</div>
 			</div>
 		</mat-toolbar>
-
 		<router-outlet></router-outlet>
+		<footer>
+			<div
+				fxLayout.gt-sm="row"
+				fxLayout.lt-md="column"
+				fxLayoutAlign.gt-sm="space-between"
+				[ngStyle.xs]="{'padding': '12px 24px'}"
+				[ngStyle.sm]="{'padding': '24px 48px'}"
+				[ngStyle.gt-sm]="{'padding': '48px 96px'}"
+				style="width: 100%">
+				<div
+					fxLayout.gt-sm="column"
+					fxLayout.lt-md="row"
+					[ngStyle.xs]="{'padding': '4px 8px'}"
+					[ngStyle.sm]="{'padding': '8px 16px'}"
+					[ngStyle.gt-sm]="{'padding': '16px 32px'}">
+					<div class="mat-typography">
+						<h3>
+							The Relationship Foundation
+						</h3>
+						<p>
+							A registered 501(c)(3) non-profit organization.
+						</p>
+						<p>
+							<span>
+								321 East 10th Street #3E
+							</span>
+							<br>
+							<span>
+								New York, NY 10009
+							</span>
+							<br>
+							<span>
+								USA
+							</span>
+						</p>
+						<p>
+							<a href="tel:+1 (212) 477-0522">
+								+1 (212) 477-0522
+							</a>
+						</p>
+					</div>
+				</div>
+				<div
+					fxLayout.gt-sm="column"
+					fxLayout.lt-md="row"
+					[ngStyle.xs]="{'padding': '4px 8px'}"
+					[ngStyle.sm]="{'padding': '8px 16px'}"
+					[ngStyle.gt-sm]="{'padding': '16px 32px'}">
+					Links...
+				</div>
+			</div>
+		</footer>
 	</mat-sidenav-content>
 	<mat-sidenav position="end">
 
