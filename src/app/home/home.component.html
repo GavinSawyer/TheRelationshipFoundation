@@ -42,10 +42,56 @@
 		[ngStyle.xs]="{'padding.px': 8}"
 		[ngStyle.sm]="{'padding.px': 16}"
 		[ngStyle.gt-sm]="{'padding.px': 32}">
-		<mat-card
+		<div
 			fxLayout="column"
 			fxFlex>
-			<img mat-card-image src="/assets/homepage.jpeg" alt="">
-		</mat-card>
+			<div fxLayout="row">
+				<mat-card
+					fxLayout="column"
+					fxFlex>
+					<img mat-card-image src="/assets/homepage.jpeg" alt="">
+				</mat-card>
+			</div>
+			<div
+				fxLayout="row"
+				class="mat-typography">
+				<span
+					class="mat-caption"
+					style="margin-top: 8px;">
+					Lorem ipsum dolor sit amet.
+				</span>
+			</div>
+		</div>
+	</div>
+	<div
+		fxLayout="row"
+		[ngStyle.xs]="{'padding.px': 8}"
+		[ngStyle.sm]="{'padding.px': 16}"
+		[ngStyle.gt-sm]="{'padding.px': 32}">
+		<div
+			fxLayout="column"
+			fxFlex>
+			<div fxLayout="row">
+				<mat-card
+					fxLayout="column"
+					fxFlex="32em"
+					[ngStyle.xs]="{'padding.px': 16}"
+					[ngStyle.sm]="{'padding.px': 32}"
+					[ngStyle.gt-sm]="{'padding.px': 64}"
+					class="mat-elevation-z4">
+					<mat-card-title>
+						Lorem ipsum dolor sit amet.
+					</mat-card-title>
+					<mat-card-subtitle>
+						Lorem ipsum dolor.
+					</mat-card-subtitle>
+					<mat-card-content>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aspernatur eaque explicabo fuga iure iusto magni nam necessitatibus, nisi odio odit possimus quod rem repellat repellendus sint tempora veritatis vero voluptates. Amet asperiores assumenda aut dignissimos dolores, ducimus enim expedita illum labore laborum maiores nisi nostrum obcaecati perferendis praesentium quod suscipit ut, voluptatibus? A animi asperiores, aspernatur consectetur culpa dolorem doloremque dolorum eaque enim eos excepturi expedita fugiat, ipsa magni mollitia nesciunt non nulla optio possimus quam qui reiciendis repellat, rerum sed sint ullam vel voluptates! A aliquid animi autem eaque et ex ipsum iusto neque obcaecati ratione? Ab aperiam assumenda deleniti dolor, dolorem, est excepturi expedita, fugiat laborum magni minus nemo nisi quasi quisquam rerum soluta temporibus tenetur.
+						</p>
+					</mat-card-content>
+				</mat-card>
+			</div>
+		</div>
 	</div>
 </section>
