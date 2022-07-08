@@ -52,8 +52,9 @@
 							"src/robots.txt"
 						],
 						"styles": [
-							"src/styles.sass"
-						],
+              "src/custom-theme.scss",
+              "src/styles.sass"
+            ],
 						"scripts": []
 					},
 					"configurations": {

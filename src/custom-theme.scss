@@ -1,0 +1,170 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+$typography-config: mat.define-typography-config(
+	$display-4: mat.define-typography-level(
+		$font-family: "'Montserrat', sans-serif",
+		$font-weight: 800,
+		$font-size: 112px,
+		$line-height: 112px,
+		$letter-spacing: -0.05em
+	),
+	$display-3: mat.define-typography-level(
+		$font-family: "'Montserrat', sans-serif",
+		$font-weight: 800,
+		$font-size: 56px,
+		$line-height: 56px,
+		$letter-spacing: -0.02em
+	),
+	$display-2: mat.define-typography-level(
+		$font-family: "'Montserrat', sans-serif",
+		$font-weight: 800,
+		$font-size: 45px,
+		$line-height: 48px,
+		$letter-spacing: 0.005em
+	),
+	$display-1: mat.define-typography-level(
+		$font-family: "'Montserrat', sans-serif",
+		$font-weight: 800,
+		$font-size: 34px,
+		$line-height: 40px,
+		$letter-spacing: normal
+	),
+	$headline: mat.define-typography-level(
+		$font-family: "'Montserrat', sans-serif",
+		$font-weight: 600,
+		$font-size: 32px,
+		$line-height: 40px,
+		$letter-spacing: normal
+	),
+	$title: mat.define-typography-level(
+		$font-family: "'Montserrat', sans-serif",
+		$font-weight: 600,
+		$font-size: 24px,
+		$line-height: 36px,
+		$letter-spacing: normal
+	),
+	$subheading-2: mat.define-typography-level(
+		$font-family: "'Crimson Text', serif",
+		$font-weight: 600,
+		$font-size: 20px,
+		$line-height: 32px,
+		$letter-spacing: normal
+	),
+	$subheading-1: mat.define-typography-level(
+		$font-family: "'Crimson Text', serif",
+		$font-weight: 400,
+		$font-size: 20px,
+		$line-height: 32px,
+		$letter-spacing: normal
+	),
+	$body-2: mat.define-typography-level(
+		$font-family: "'Crimson Text', serif",
+		$font-weight: 600,
+		$font-size: 16px,
+		$line-height: 26px,
+		$letter-spacing: normal
+	),
+	$body-1: mat.define-typography-level(
+		$font-family: "'Crimson Text', serif",
+		$font-weight: 400,
+		$font-size: 16px,
+		$line-height: 26px,
+		$letter-spacing: normal
+	),
+	$caption: mat.define-typography-level(
+		$font-family: "'Crimson Text', serif",
+		$font-weight: 400,
+		$font-size: 14px,
+		$line-height: 22px,
+		$letter-spacing: normal
+	),
+	$button: mat.define-typography-level(
+		$font-family: "'Montserrat', serif",
+		$font-weight: 600,
+		$font-size: 16px,
+	)
+);
+
+@include mat.core($typography-config);
+
+$primary-palette: mat.$blue-palette;
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$TheRelationshipFoundation-light-theme: mat.define-light-theme((
+	color: (
+		primary: mat.define-palette($primary-palette),
+		accent: mat.define-palette(mat.$gray-palette, 100, 50, 200),
+		warn: mat.define-palette(mat.$red-palette),
+	)
+));
+
+$TheRelationshipFoundation-dark-theme: mat.define-dark-theme((
+	color: (
+		primary: mat.define-palette($primary-palette),
+		accent: mat.define-palette(mat.$gray-palette, 100, 50, 200),
+		warn: mat.define-palette(mat.$red-palette),
+	)
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($TheRelationshipFoundation-light-theme);
+
+@media (prefers-color-scheme: dark) {
+	@include mat.all-component-colors($TheRelationshipFoundation-dark-theme);
+}
+
+.mat-h1,
+.mat-headline,
+.mat-h3,
+.mat-subheading-2,
+.mat-body-2,
+.mat-body-strong {
+	font-style: italic;
+}
+
+.mat-typography {
+	h1,
+	h3,
+	.mat-body-2,
+	.mat-body-strong {
+		font-style: italic;
+	}
+}
+
+.mat-toolbar {
+	.mat-icon {
+		width: mat.line-height($typography-config, 'title');
+		height: mat.line-height($typography-config, 'title');
+		font-size: mat.line-height($typography-config, 'title');
+	}
+}
+
+.mat-button,
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button, {
+	border-radius: 12px !important;
+}
+
+.mat-raised-button.mat-primary {
+	background-image: linear-gradient(30deg, mat.get-color-from-palette($primary-palette, 300) 0%, mat.get-color-from-palette($primary-palette, 700) 60%),
+}
+
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: "Crimson Text", "Helvetica Neue", sans-serif;
+}
