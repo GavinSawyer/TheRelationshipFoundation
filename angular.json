@@ -1,185 +1,187 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "TheRelationshipFoundation": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "sass",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:interceptor": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:resolver": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "theRelationshipFoundationApp",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/TheRelationshipFoundation/browser",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.sass"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "TheRelationshipFoundation:build:production"
-            },
-            "development": {
-              "browserTarget": "TheRelationshipFoundation:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "TheRelationshipFoundation:build"
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/TheRelationshipFoundation/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "inlineStyleLanguage": "sass"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "TheRelationshipFoundation:build:development",
-              "serverTarget": "TheRelationshipFoundation:server:development"
-            },
-            "production": {
-              "browserTarget": "TheRelationshipFoundation:build:production",
-              "serverTarget": "TheRelationshipFoundation:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "TheRelationshipFoundation:build:production",
-              "serverTarget": "TheRelationshipFoundation:server:production"
-            },
-            "development": {
-              "browserTarget": "TheRelationshipFoundation:build:development",
-              "serverTarget": "TheRelationshipFoundation:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {
-            "prerender": true,
-            "ssr": false,
-            "browserTarget": "TheRelationshipFoundation:build:production",
-            "firebaseProject": "therelationshipfoundationapp",
-            "firebaseHostingSite": "therelationshipfoundationapp",
-            "serverTarget": "TheRelationshipFoundation:server:production",
-            "prerenderTarget": "TheRelationshipFoundation:prerender:production"
-          }
-        }
-      }
-    }
-  },
-  "cli": {
-    "analytics": "8015ad74-adfe-4f03-8bd6-77d0a5ac5c9f"
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"TheRelationshipFoundation": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "sass",
+					"skipTests": true
+				},
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "",
+			"sourceRoot": "src",
+			"prefix": "theRelationshipFoundationApp",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:browser",
+					"options": {
+						"outputPath": "dist/TheRelationshipFoundation/browser",
+						"index": "src/index.html",
+						"main": "src/main.ts",
+						"polyfills": "src/polyfills.ts",
+						"tsConfig": "tsconfig.app.json",
+						"inlineStyleLanguage": "sass",
+						"assets": [
+							"src/favicon.ico",
+							"src/assets",
+							"src/sitemap.xml",
+							"src/robots.txt"
+						],
+						"styles": [
+							"src/styles.sass"
+						],
+						"scripts": []
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "TheRelationshipFoundation:build:production"
+						},
+						"development": {
+							"browserTarget": "TheRelationshipFoundation:build:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"browserTarget": "TheRelationshipFoundation:build"
+					}
+				},
+				"server": {
+					"builder": "@angular-devkit/build-angular:server",
+					"options": {
+						"outputPath": "dist/TheRelationshipFoundation/server",
+						"main": "server.ts",
+						"tsConfig": "tsconfig.server.json",
+						"inlineStyleLanguage": "sass"
+					},
+					"configurations": {
+						"production": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							]
+						},
+						"development": {
+							"optimization": false,
+							"sourceMap": true,
+							"extractLicenses": false
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-ssr": {
+					"builder": "@nguniversal/builders:ssr-dev-server",
+					"configurations": {
+						"development": {
+							"browserTarget": "TheRelationshipFoundation:build:development",
+							"serverTarget": "TheRelationshipFoundation:server:development"
+						},
+						"production": {
+							"browserTarget": "TheRelationshipFoundation:build:production",
+							"serverTarget": "TheRelationshipFoundation:server:production"
+						}
+					},
+					"defaultConfiguration": "development"
+				},
+				"prerender": {
+					"builder": "@nguniversal/builders:prerender",
+					"options": {
+						"routes": [
+							"/"
+						]
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "TheRelationshipFoundation:build:production",
+							"serverTarget": "TheRelationshipFoundation:server:production"
+						},
+						"development": {
+							"browserTarget": "TheRelationshipFoundation:build:development",
+							"serverTarget": "TheRelationshipFoundation:server:development"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"deploy": {
+					"builder": "@angular/fire:deploy",
+					"options": {
+						"prerender": true,
+						"ssr": false,
+						"browserTarget": "TheRelationshipFoundation:build:production",
+						"firebaseProject": "therelationshipfoundationapp",
+						"firebaseHostingSite": "therelationshipfoundationapp",
+						"serverTarget": "TheRelationshipFoundation:server:production",
+						"prerenderTarget": "TheRelationshipFoundation:prerender:production"
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"analytics": "8015ad74-adfe-4f03-8bd6-77d0a5ac5c9f"
+	}
 }
