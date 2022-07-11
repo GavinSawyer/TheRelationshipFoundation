@@ -17,15 +17,21 @@
 					fxLayout="row"
 					fxLayoutGap="14px"
 					fxHide.lt-md>
-					<button mat-button>
+					<a
+						routerLink="/about"
+						mat-button>
 						About
-					</button>
-					<button mat-button>
+					</a>
+					<a
+						routerLink="/resources"
+						mat-button>
 						Resources
-					</button>
-					<button mat-button>
+					</a>
+					<a
+						routerLink="/contact"
+						mat-button>
 						Contact
-					</button>
+					</a>
 					<button
 						mat-raised-button
 						color="primary">
@@ -77,7 +83,31 @@
 				<div
 					fxLayout.gt-sm="column"
 					fxLayout.lt-md="row">
-					Links...
+					<mat-nav-list>
+						<h3 matSubheader>
+							Explore
+						</h3>
+						<a
+							routerLink="/"
+							mat-list-item>
+							Home
+						</a>
+						<a
+							routerLink="/about"
+							mat-list-item>
+							About
+						</a>
+						<a
+							routerLink="/resources"
+							mat-list-item>
+							Resources
+						</a>
+						<a
+							routerLink="/contact"
+							mat-list-item>
+							Contact
+						</a>
+					</mat-nav-list>
 				</div>
 			</div>
 		</footer>

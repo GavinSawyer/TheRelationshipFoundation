@@ -14,7 +14,7 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
 
 @NgModule({
 	declarations: [
-		HomeComponent
+		HomeComponent,
 	],
 	imports: [
 		CommonModule,
@@ -29,6 +29,6 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
 		MatCardModule,
 
 		YouTubePlayerModule,
-	]
+	],
 })
 export class HomeModule { }
