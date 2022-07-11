@@ -9,7 +9,7 @@
 					<mat-icon fontSet="material-icons-round">
 						language
 					</mat-icon>
-					<span>
+					<span fxHide.lt-sm>
 						The Relationship Foundation
 					</span>
 				</div>
@@ -40,16 +40,13 @@
 				fxLayout.gt-sm="row"
 				fxLayout.lt-md="column"
 				fxLayoutAlign.gt-sm="space-between"
-				[ngStyle.xs]="{'padding': '12px 24px'}"
-				[ngStyle.sm]="{'padding': '24px 48px'}"
-				[ngStyle.gt-sm]="{'padding': '48px 96px'}"
+				fxLayoutGap.xs="16px"
+				fxLayoutGap.sm="32px"
+				fxLayoutGap.gt-sm="64px"
 				style="width: 100%">
 				<div
 					fxLayout.gt-sm="column"
-					fxLayout.lt-md="row"
-					[ngStyle.xs]="{'padding': '4px 8px'}"
-					[ngStyle.sm]="{'padding': '8px 16px'}"
-					[ngStyle.gt-sm]="{'padding': '16px 32px'}">
+					fxLayout.lt-md="row">
 					<div class="mat-typography">
 						<h3>
 							The Relationship Foundation
@@ -79,10 +76,7 @@
 				</div>
 				<div
 					fxLayout.gt-sm="column"
-					fxLayout.lt-md="row"
-					[ngStyle.xs]="{'padding': '4px 8px'}"
-					[ngStyle.sm]="{'padding': '8px 16px'}"
-					[ngStyle.gt-sm]="{'padding': '16px 32px'}">
+					fxLayout.lt-md="row">
 					Links...
 				</div>
 			</div>

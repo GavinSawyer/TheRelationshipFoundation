@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/platform-server": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@angular/youtube-player": "^14.0.4",
     "@nguniversal/express-engine": "^14.0.2",
     "express": "^4.15.2",
     "rxjs": "~7.5.0",

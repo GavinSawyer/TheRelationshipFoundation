@@ -10,6 +10,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatCardModule } from "@angular/material/card";
 
+import { YouTubePlayerModule } from "@angular/youtube-player";
 
 @NgModule({
 	declarations: [
@@ -17,12 +18,17 @@ import { MatCardModule } from "@angular/material/card";
 	],
 	imports: [
 		CommonModule,
-		FlexModule,
-		HomeRoutingModule,
+
 		ExtendedModule,
+		FlexModule,
+
+		HomeRoutingModule,
+
 		MatButtonModule,
 		MatIconModule,
 		MatCardModule,
+
+		YouTubePlayerModule,
 	]
 })
 export class HomeModule { }
