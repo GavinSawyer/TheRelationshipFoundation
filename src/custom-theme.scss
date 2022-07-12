@@ -251,10 +251,40 @@ youtube-player {
 }
 
 .mat-card,
+.mat-button-base:not(.mat-fab, .mat-mini-fab),
 .mat-raised-button,
 .mat-stroked-button,
 .mat-flat-button {
 	border-radius: 12px !important;
+}
+
+.mat-nav-list,
+.mat-action-list,
+.mat-selection-list {
+	& > a.mat-list-item,
+	& > button[mat-list-item],
+	& > mat-list-option.mat-list-item {
+		&:first-child {
+			&,
+			& > span.mat-list-item-content > span.mat-list-item-ripple,
+			& > div.mat-list-item-content > div.mat-list-item-ripple {
+				overflow: hidden;
+
+				border-top-left-radius: 12px !important;
+				border-top-right-radius: 12px !important;
+			}
+		}
+		&:last-child {
+			&,
+			& > span.mat-list-item-content > span.mat-list-item-ripple,
+			& > div.mat-list-item-content > div.mat-list-item-ripple {
+				overflow: hidden;
+
+				border-bottom-left-radius: 12px !important;
+				border-bottom-right-radius: 12px !important;
+			}
+		}
+	}
 }
 
 .mat-icon {
