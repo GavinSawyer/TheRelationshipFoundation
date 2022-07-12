@@ -1,17 +1,19 @@
 <mat-sidenav-container>
 	<mat-sidenav-content>
-		<mat-toolbar class="mat-elevation-z8">
+		<mat-toolbar
+			fxLayout="row"
+			fxHide.lt-sm
+			class="mat-elevation-z8">
 			<div
 				fxLayout="row"
 				fxLayoutAlign="space-between"
 				style="width: 100%; height: 36px;">
 				<div fxLayout="row">
-					<mat-icon fontSet="material-icons-round">
-						language
-					</mat-icon>
-					<span fxHide.lt-sm>
+					<a
+						routerLink="/"
+						fxHide.lt-sm>
 						The Relationship Foundation
-					</span>
+					</a>
 				</div>
 				<div
 					fxLayout="row"
@@ -38,8 +40,31 @@
 						Donate
 					</button>
 				</div>
+				<div
+					fxLayout="row"
+					fxLayoutGap="14px"
+					fxHide.gt-sm>
+					<button
+						mat-mini-fab
+						color="primary"
+						(click)="sidenav.open();">
+						<mat-icon fontSet="material-icons-round">
+							explore
+						</mat-icon>
+					</button>
+				</div>
 			</div>
 		</mat-toolbar>
+		<button
+			fxHide.gt-xs
+			mat-fab
+			color="primary"
+			(click)="sidenav.open();">
+			<mat-icon fontSet="material-icons-round">
+				explore
+			</mat-icon>
+		</button>
+
 		<router-outlet></router-outlet>
 		<footer>
 			<div
@@ -73,7 +98,7 @@
 								USA
 							</span>
 						</p>
-						<p>
+						<p style="margin-bottom: 0;">
 							<a href="tel:+1 (212) 477-0522">
 								+1 (212) 477-0522
 							</a>
@@ -83,10 +108,9 @@
 				<div
 					fxLayout.gt-sm="column"
 					fxLayout.lt-md="row">
-					<mat-nav-list>
-						<h3 matSubheader>
-							Explore
-						</h3>
+					<mat-nav-list
+						fxLayout="column"
+						fxFlex>
 						<a
 							routerLink="/"
 							mat-list-item>
@@ -112,7 +136,93 @@
 			</div>
 		</footer>
 	</mat-sidenav-content>
-	<mat-sidenav position="end">
+	<mat-sidenav
+		#sidenav
+		position="end">
+		<div
+			fxLayout="column"
+			fxFlex="100vw">
+			<mat-toolbar
+				fxLayout="row"
+				fxHide.lt-sm
+				class="mat-elevation-z8">
+				<div
+					fxLayout="row"
+					fxLayoutAlign="space-between"
+					style="width: 100%; height: 36px;">
+					<span>
+						The Relationship Foundation
+					</span>
+					<button
+						mat-mini-fab
+						color="accent"
+						(click)="sidenav.close();">
+						<mat-icon fontSet="material-icons-round">
+							close
+						</mat-icon>
+					</button>
+				</div>
+			</mat-toolbar>
+			<button
+				fxHide.gt-xs
+				mat-fab
+				color="accent"
+				class="app-exit-sidenav-button"
+				(click)="sidenav.close();">
+				<mat-icon fontSet="material-icons-round">
+					close
+				</mat-icon>
+			</button>
 
+			<div
+				fxLayout="row"
+				[ngStyle.xs]="{'padding.px': 32}"
+				[ngStyle.sm]="{'padding.px': 64}"
+				[ngStyle.gt-sm]="{'padding.px': 128}">
+				<div
+					fxLayout="column"
+					fxLayoutGap.xs="16px"
+					fxLayoutGap.sm="32px"
+					fxLayoutGap.gt-sm="64px"
+					fxFlex>
+					<h1
+						fxLayout="row"
+						class="mat-display-1"
+						style="max-width: 12em; margin-bottom: 0;">
+						Explore
+					</h1>
+					<div fxLayout="row">
+						<mat-nav-list
+							fxLayout="column"
+							fxFlex>
+							<a
+								routerLink="/"
+								(click)="sidenav.close();"
+								mat-list-item>
+								Home
+							</a>
+							<a
+								routerLink="/about"
+								(click)="sidenav.close();"
+								mat-list-item>
+								About
+							</a>
+							<a
+								routerLink="/resources"
+								(click)="sidenav.close();"
+								mat-list-item>
+								Resources
+							</a>
+							<a
+								routerLink="/contact"
+								(click)="sidenav.close();"
+								mat-list-item>
+								Contact
+							</a>
+						</mat-nav-list>
+					</div>
+				</div>
+			</div>
+		</div>
 	</mat-sidenav>
 </mat-sidenav-container>
