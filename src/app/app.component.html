@@ -55,15 +55,6 @@
 				</div>
 			</div>
 		</mat-toolbar>
-		<button
-			fxHide.gt-xs
-			mat-fab
-			color="primary"
-			(click)="sidenav.open();">
-			<mat-icon fontSet="material-icons-round">
-				explore
-			</mat-icon>
-		</button>
 
 		<router-outlet></router-outlet>
 		<footer>
@@ -135,6 +126,16 @@
 				</div>
 			</div>
 		</footer>
+
+		<button
+			fxHide.gt-xs
+			mat-fab
+			color="primary"
+			(click)="sidenav.open();">
+			<mat-icon fontSet="material-icons-round">
+				explore
+			</mat-icon>
+		</button>
 	</mat-sidenav-content>
 	<mat-sidenav
 		#sidenav
@@ -163,16 +164,6 @@
 					</button>
 				</div>
 			</mat-toolbar>
-			<button
-				fxHide.gt-xs
-				mat-fab
-				color="accent"
-				class="app-exit-sidenav-button"
-				(click)="sidenav.close();">
-				<mat-icon fontSet="material-icons-round">
-					close
-				</mat-icon>
-			</button>
 
 			<div
 				fxLayout="row"
@@ -223,6 +214,17 @@
 					</div>
 				</div>
 			</div>
+
+			<button
+				fxHide.gt-xs
+				mat-fab
+				color="accent"
+				class="app-exit-sidenav-button"
+				(click)="sidenav.close();">
+				<mat-icon fontSet="material-icons-round">
+					close
+				</mat-icon>
+			</button>
 		</div>
 	</mat-sidenav>
 </mat-sidenav-container>
