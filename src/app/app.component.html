@@ -1,60 +1,101 @@
 <mat-sidenav-container>
 	<mat-sidenav-content>
-		<mat-toolbar
+		<div
 			fxLayout="row"
-			fxHide.lt-sm
-			class="mat-elevation-z8">
-			<div
-				fxLayout="row"
-				fxLayoutAlign="space-between"
-				style="width: 100%; height: 36px;">
-				<div fxLayout="row">
+			fxHide.xs
+			[ngStyle.sm]="{'padding-top.px': 64, 'padding-right.px': 64, 'padding-left.px': 64}"
+			[ngStyle.gt-sm]="{'padding-top.px': 128, 'padding-right.px': 128, 'padding-left.px': 128}">
+			<mat-toolbar
+				fxLayout="column"
+				fxFlex
+				style="background: transparent;">
+				<mat-toolbar-row style="padding: 0;">
 					<a
-						routerLink="/"
-						fxHide.lt-sm>
+						routerLink="/">
 						The Relationship Foundation
 					</a>
-				</div>
-				<div
-					fxLayout="row"
-					fxLayoutGap="14px"
-					fxHide.lt-md>
-					<a
-						routerLink="/about"
-						mat-button>
-						About
-					</a>
-					<a
-						routerLink="/resources"
-						mat-button>
-						Resources
-					</a>
-					<a
-						routerLink="/contact"
-						mat-button>
-						Contact
-					</a>
-					<button
-						mat-raised-button
-						color="primary">
-						Donate
-					</button>
-				</div>
-				<div
-					fxLayout="row"
-					fxLayoutGap="14px"
-					fxHide.gt-sm>
-					<button
-						mat-mini-fab
-						color="primary"
-						(click)="sidenav.open();">
-						<mat-icon fontSet="material-icons-round">
-							explore
-						</mat-icon>
-					</button>
-				</div>
-			</div>
-		</mat-toolbar>
+				</mat-toolbar-row>
+				<mat-toolbar-row style="padding: 0;">
+					<div
+						fxLayout="column"
+						fxFlex>
+						<div
+							fxLayout="row"
+							fxLayoutGap="14px">
+							<button
+								mat-button
+								[matMenuTriggerFor]="aboutMenu">
+								About
+								<mat-icon fontSet="material-icons-round">
+									expand_more
+								</mat-icon>
+							</button>
+							<mat-menu #aboutMenu="matMenu">
+								<ng-template matMenuContent>
+									<a
+										routerLink="/about"
+										mat-menu-item>
+										Mission
+									</a>
+									<a
+										routerLink="/about"
+										mat-menu-item>
+										Curriculum
+									</a>
+									<a
+										routerLink="/about"
+										mat-menu-item>
+										Team
+									</a>
+									<a
+										routerLink="/about"
+										mat-menu-item>
+										Board
+									</a>
+								</ng-template>
+							</mat-menu>
+							<button
+								mat-button
+								[matMenuTriggerFor]="resourcesMenu">
+								Resources
+								<mat-icon fontSet="material-icons-round">
+									expand_more
+								</mat-icon>
+							</button>
+							<mat-menu #resourcesMenu="matMenu">
+								<ng-template matMenuContent>
+									<a
+										routerLink="/resources"
+										mat-menu-item>
+										Webinars
+									</a>
+									<a
+										routerLink="/resources"
+										mat-menu-item>
+										Nonviolent communication
+									</a>
+									<a
+										routerLink="/resources"
+										mat-menu-item>
+										Trauma & resilience
+									</a>
+								</ng-template>
+							</mat-menu>
+							<a
+								routerLink="/contact"
+								mat-button>
+								Contact
+							</a>
+							<button
+								mat-raised-button
+								color="primary">
+								Donate
+							</button>
+						</div>
+					</div>
+				</mat-toolbar-row>
+			</mat-toolbar>
+		</div>
 
 		<router-outlet></router-outlet>
 		<footer>
@@ -90,7 +131,9 @@
 							</span>
 						</p>
 						<p style="margin-bottom: 0;">
-							<a href="tel:+1 (212) 477-0522">
+							<a
+								href="tel:+1 (212) 477-0522"
+								class="background-app-bar">
 								+1 (212) 477-0522
 							</a>
 						</p>
@@ -143,28 +186,6 @@
 		<div
 			fxLayout="column"
 			fxFlex="100vw">
-			<mat-toolbar
-				fxLayout="row"
-				fxHide.lt-sm
-				class="mat-elevation-z8">
-				<div
-					fxLayout="row"
-					fxLayoutAlign="space-between"
-					style="width: 100%; height: 36px;">
-					<span>
-						The Relationship Foundation
-					</span>
-					<button
-						mat-mini-fab
-						color="accent"
-						(click)="sidenav.close();">
-						<mat-icon fontSet="material-icons-round">
-							close
-						</mat-icon>
-					</button>
-				</div>
-			</mat-toolbar>
-
 			<div
 				fxLayout="row"
 				[ngStyle.xs]="{'padding.px': 32}"
@@ -216,7 +237,6 @@
 			</div>
 
 			<button
-				fxHide.gt-xs
 				mat-fab
 				color="accent"
 				class="app-exit-sidenav-button"
