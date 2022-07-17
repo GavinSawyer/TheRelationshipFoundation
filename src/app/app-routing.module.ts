@@ -42,7 +42,11 @@ const routes: Routes = [
 
 @NgModule({
 	imports: [RouterModule.forRoot(routes, {
-		initialNavigation: 'enabledBlocking'
+		initialNavigation: 'enabledBlocking',
+		onSameUrlNavigation: 'reload',
+		scrollPositionRestoration: 'enabled',
+		anchorScrolling: 'enabled',
+		scrollOffset: [0, 32],
 	})],
 	exports: [RouterModule]
 })

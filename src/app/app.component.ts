@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 
 import { Observable, Subject } from 'rxjs';
@@ -21,15 +22,31 @@ export class AppComponent implements OnInit {
 		private Router: Router,
 		private Meta: Meta,
 		private Title: Title,
+		private ViewportScroller: ViewportScroller,
 	) {};
 
 	public firstSectionHasImage$: Observable<boolean> = this.firstSectionHasImageBehaviorSubject.asObservable();
+
+	public scrollAfterNavigation(): void {
+		this
+			.ViewportScroller
+			.scrollToAnchor("mission");
+	}
 
 	ngOnInit(): void {
 		this
 			.Router
 			.events
 			.subscribe((): void => ((delve: (activatedRoute: ActivatedRoute, delve: any) => void) => delve(this.ActivatedRoute, delve))((activatedRoute: ActivatedRoute, delve: (activatedRoute: ActivatedRoute, delve: any) => void): void => {
+				setTimeout((): void => {
+					this
+						.ActivatedRoute
+						.snapshot
+						.fragment && this
+						.ViewportScroller
+						.scrollToAnchor(this.ActivatedRoute.snapshot.fragment)
+				}, 0);
+
 				(activatedRoute.firstChild) ? delve(activatedRoute.firstChild, delve) : ((): void => {
 					this
 						.firstSectionHasImageBehaviorSubject
