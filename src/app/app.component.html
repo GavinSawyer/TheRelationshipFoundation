@@ -1,24 +1,32 @@
-<mat-sidenav-container>
+<mat-sidenav-container style="width: 100vw;">
 	<mat-sidenav-content>
 		<div
-			fxLayout="row"
-			fxHide.xs
-			[ngStyle.sm]="{'padding-top.px': 64, 'padding-right.px': 64, 'padding-left.px': 64}"
-			[ngStyle.gt-sm]="{'padding-top.px': 128, 'padding-right.px': 128, 'padding-left.px': 128}">
+			fxLayout="row">
 			<mat-toolbar
 				fxLayout="column"
 				fxFlex
-				style="background: transparent;">
-				<mat-toolbar-row style="padding: 0;">
-					<a
-						routerLink="/">
-						The Relationship Foundation
-					</a>
-				</mat-toolbar-row>
-				<mat-toolbar-row style="padding: 0;">
+
+				[ngClass.lt-md]="{'mat-toolbar--background-transparent': true}"
+
+				style="z-index: 999;">
+				<mat-toolbar-row fxLayoutAlign="space-between">
 					<div
 						fxLayout="column"
-						fxFlex>
+						fxLayoutAlign="center"
+						fxHide.gt-sm
+						style="margin: 0 1rem;">
+						<div fxLayout="row">
+							<a
+								routerLink="/">
+								The Relationship Foundation
+							</a>
+						</div>
+					</div>
+					<div
+						fxLayout="column"
+						fxLayoutAlign="center"
+						fxFlex
+						fxHide.lt-md>
 						<div
 							fxLayout="row"
 							fxLayoutGap="14px">
@@ -86,31 +94,71 @@
 								mat-button>
 								Contact
 							</a>
-							<button
-								mat-raised-button
-								color="primary">
-								Donate
-							</button>
 						</div>
+					</div>
+					<div
+						fxLayout="column"
+						fxLayoutAlign="center">
+						<button
+							mat-button
+							fxHide.lt-md>
+							Log in
+						</button>
+						<button
+							mat-mini-fab
+							color="primary"
+							fxHide.gt-sm
+							(click)="sidenav.open();">
+							<mat-icon fontSet="material-icons-round">
+								explore
+							</mat-icon>
+						</button>
 					</div>
 				</mat-toolbar-row>
 			</mat-toolbar>
 		</div>
 
-		<router-outlet></router-outlet>
-		<footer>
+		<div
+			fxLayout="row"
+			fxHide.lt-md
+
+			style="padding: 8rem 2rem;">
+			<div
+				fxLayout="column"
+				class="mat-typography">
+				<h3
+					class="mat-subheading-2"
+					style="font-size: 1.75rem; z-index: 999;">
+					<a routerLink="">The Relationship Foundation</a>
+				</h3>
+			</div>
+		</div>
+
+		<div
+			id="outlet-container"
+			fxLayout="row"
+			[ngStyle.xs]="{'margin-top.px': -56}"
+			[ngStyle.sm]="{'margin-top.px': -64}"
+			[ngStyle.gt-sm]="{'margin-top.px': -288}">
+			<router-outlet></router-outlet>
+		</div>
+
+		<footer fxLayout="row">
 			<div
 				fxLayout.gt-sm="row"
-				fxLayout.lt-md="column"
+				fxLayout.lt-md="column-reverse"
+
 				fxLayoutAlign.gt-sm="space-between"
-				fxLayoutGap.xs="16px"
-				fxLayoutGap.sm="32px"
-				fxLayoutGap.gt-sm="64px"
+
+				fxLayoutGap="2rem"
+
 				style="width: 100%">
 				<div
 					fxLayout.gt-sm="column"
 					fxLayout.lt-md="row">
-					<div class="mat-typography">
+					<div
+						fxLayout="column"
+						class="mat-typography">
 						<h3>
 							The Relationship Foundation
 						</h3>
@@ -130,7 +178,7 @@
 								USA
 							</span>
 						</p>
-						<p style="margin-bottom: 0;">
+						<p>
 							<a
 								href="tel:+1 (212) 477-0522"
 								class="background-app-bar">
@@ -144,7 +192,9 @@
 					fxLayout.lt-md="row">
 					<mat-nav-list
 						fxLayout="column"
-						fxFlex>
+						fxLayoutAlign="end"
+						fxFlex
+						style="margin: -1rem;">
 						<a
 							routerLink="/"
 							mat-list-item>
@@ -169,82 +219,69 @@
 				</div>
 			</div>
 		</footer>
-
-		<button
-			fxHide.gt-xs
-			mat-fab
-			color="primary"
-			(click)="sidenav.open();">
-			<mat-icon fontSet="material-icons-round">
-				explore
-			</mat-icon>
-		</button>
 	</mat-sidenav-content>
 	<mat-sidenav
 		#sidenav
-		position="end">
-		<div
-			fxLayout="column"
-			fxFlex="100vw">
-			<div
-				fxLayout="row"
-				[ngStyle.xs]="{'padding.px': 32}"
-				[ngStyle.sm]="{'padding.px': 64}"
-				[ngStyle.gt-sm]="{'padding.px': 128}">
-				<div
-					fxLayout="column"
-					fxLayoutGap.xs="16px"
-					fxLayoutGap.sm="32px"
-					fxLayoutGap.gt-sm="64px"
-					fxFlex>
-					<h1
-						fxLayout="row"
-						class="mat-display-1"
-						style="max-width: 12em; margin-bottom: 0;">
-						Explore
-					</h1>
-					<div fxLayout="row">
-						<mat-nav-list
-							fxLayout="column"
-							fxFlex>
-							<a
-								routerLink="/"
-								(click)="sidenav.close();"
-								mat-list-item>
-								Home
-							</a>
-							<a
-								routerLink="/about"
-								(click)="sidenav.close();"
-								mat-list-item>
-								About
-							</a>
-							<a
-								routerLink="/resources"
-								(click)="sidenav.close();"
-								mat-list-item>
-								Resources
-							</a>
-							<a
-								routerLink="/contact"
-								(click)="sidenav.close();"
-								mat-list-item>
-								Contact
-							</a>
-						</mat-nav-list>
+		position="end"
+		style="width: 100vw; height: 100vh;">
+		<div fxLayout="row">
+			<mat-toolbar
+				fxLayout="column"
+				fxFlex>
+				<mat-toolbar-row fxLayoutAlign="space-between">
+					<div
+						fxLayout="column"
+						fxLayoutAlign="center">
+						<span>
+							Explore
+						</span>
 					</div>
-				</div>
-			</div>
-
-			<button
-				mat-fab
-				color="accent"
-				class="app-exit-sidenav-button"
-				(click)="sidenav.close();">
-				<mat-icon fontSet="material-icons-round">
-					close
-				</mat-icon>
-			</button>
+					<div
+						fxLayout="column"
+						fxLayoutAlign="center">
+						<button
+							mat-mini-fab
+							fxHide.gt-sm
+							(click)="sidenav.close();">
+							<mat-icon fontSet="material-icons-round">
+								close
+							</mat-icon>
+						</button>
+					</div>
+				</mat-toolbar-row>
+			</mat-toolbar>
 		</div>
+
+		<section fxLayout="row">
+			<mat-nav-list
+				fxLayout="column"
+				fxFlex
+				style="margin: -1rem;">
+				<a
+					routerLink="/"
+					(click)="sidenav.close();"
+					mat-list-item>
+					Home
+				</a>
+				<a
+					routerLink="/about"
+					(click)="sidenav.close();"
+					mat-list-item>
+					About
+				</a>
+				<a
+					routerLink="/resources"
+					(click)="sidenav.close();"
+					mat-list-item>
+					Resources
+				</a>
+				<a
+					routerLink="/contact"
+					(click)="sidenav.close();"
+					mat-list-item>
+					Contact
+				</a>
+			</mat-nav-list>
+		</section>
 	</mat-sidenav>
 </mat-sidenav-container>

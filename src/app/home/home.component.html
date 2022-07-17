@@ -1,47 +1,49 @@
 <section
-	fxLayout="row">
+	fxLayout="row"
+	style="background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;">
 	<div
 		fxLayout="column"
-		fxLayoutGap.xs="16px"
-		fxLayoutGap.sm="32px"
-		fxLayoutGap.gt-sm="64px"
+		fxFlex="0 1 24rem"
+		class="mat-typography">
+		<h2 class="mat-display-1">
+			Lorem ipsum dolor sit amet.
+		</h2>
+		<p
+			class="mat-subheading-1"
+			style="margin-bottom: 0;">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet asperiores cupiditate libero, nostrum numquam odio sequi unde ut vitae.
+		</p>
+	</div>
+</section>
+<section fxLayout="row">
+	<div
+		fxLayout="column"
 		fxFlex>
-		<h1
-			fxLayout="row"
-			class="mat-display-1"
-			style="max-width: 12em; margin-bottom: 0;">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-		</h1>
-		<div fxLayout="row">
+		<div
+			fxLayout="row wrap"
+			fxLayoutGap="2rem grid">
 			<div
 				fxLayout="column"
-				fxFlex>
-				<div
-					fxLayout="row wrap"
-					fxLayoutGap.xs="16px grid"
-					fxLayoutGap.sm="32px grid"
-					fxLayoutGap.gt-sm="64px grid">
-					<div
-						fxLayout="column"
-						style="flex: 1 0 min(100%, 384px);">
-						<mat-card>
-							<youtube-player videoId="tWdPaLGdZCw"></youtube-player>
-						</mat-card>
-					</div>
-					<div
-						fxLayout="column"
-						fxFlex="0 1 512px"
-						class="mat-typography">
-						<h2 class="mat-display-1">
-							What we do
-						</h2>
-						<p
-							class="mat-subheading-1"
-							style="margin-bottom: 0;">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae consequatur, doloremque esse eum exercitationem, expedita explicabo facilis fugiat iste minus modi natus neque nobis non odio possimus quia quis suscipit totam. A optio pariatur tempore! Accusantium nostrum provident rem.
-						</p>
-					</div>
-				</div>
+				style="flex: 1 1 min(100%, 48rem); margin-left: -2rem;">
+				<mat-card class="mat-card--flat-left-edge">
+					<youtube-player videoId="tWdPaLGdZCw"></youtube-player>
+				</mat-card>
+			</div>
+			<div
+				fxLayout="column"
+				fxFlex="0 1 24rem"
+				class="mat-typography">
+				<p class="mat-caption">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				</p>
+				<h2 class="mat-display-1">
+					Lorem ipsum dolor sit amet.
+				</h2>
+				<p
+					class="mat-subheading-1"
+					style="margin-bottom: 0;">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet asperiores cupiditate libero, nostrum numquam odio sequi unde ut vitae.
+				</p>
 			</div>
 		</div>
 	</div>
