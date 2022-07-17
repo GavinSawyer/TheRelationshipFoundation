@@ -8,6 +8,7 @@ import { AboutComponent } from './about.component';
 
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatListModule } from "@angular/material/list";
 
     MatDividerModule,
     MatListModule,
+    MatCardModule,
   ],
 })
 export class AboutModule { }
