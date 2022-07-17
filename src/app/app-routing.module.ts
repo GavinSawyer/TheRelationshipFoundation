@@ -8,6 +8,7 @@ const routes: Routes = [
 		data: {
 			title: "Home",
 			description: "The Relationship Foundation is...",
+			firstSectionHasImage: true,
 		},
 	},
 	{
@@ -16,6 +17,7 @@ const routes: Routes = [
 		data: {
 			title: "About",
 			description: "Learn about The Relationship Foundation",
+			firstSectionHasImage: false,
 		},
 	},
 	{
@@ -24,6 +26,7 @@ const routes: Routes = [
 		data: {
 			title: "Resources",
 			description: "Download resources",
+			firstSectionHasImage: false,
 		},
 	},
 	{
@@ -32,6 +35,7 @@ const routes: Routes = [
 		data: {
 			title: "Contact",
 			description: "Contact us",
+			firstSectionHasImage: false,
 		},
 	},
 ];

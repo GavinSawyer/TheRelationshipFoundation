@@ -321,7 +321,8 @@ body {
 
 	.mat-nav-list,
 	.mat-action-list,
-	.mat-selection-list {
+	.mat-selection-list,
+	.mat-menu-panel {
 		padding: 0 !important;
 
 		&, .mat-menu-content div {
@@ -399,10 +400,12 @@ body {
 		background-image: linear-gradient(30deg, mat.get-color-from-palette($primary-palette, 300) 0%, mat.get-color-from-palette($primary-palette, 700) 60%),
 	}
 
-	section {
-		a:not(.mat-button-base, .mat-menu-item, .mat-list-item) {
-			@include animated-anchor-underlines()
-		}
+	#homepage-anchor-container a:not(.homepage-anchor--hide-animation) {
+		@include animated-anchor-underlines()
+	}
+
+	section a:not(.mat-button-base, .mat-menu-item, .mat-list-item) {
+		@include animated-anchor-underlines()
 	}
 
 	section,
@@ -434,13 +437,13 @@ body {
 
 	& > section:first-child {
 		@media screen and (max-width: 599px) {
-			padding-top: calc(2rem + 56px);
+			padding-top: calc(4rem + 56px);
 		}
 		@media screen and (min-width: 600px) and (max-width: 959px) {
-			padding-top: calc(2rem + 64px);
+			padding-top: calc(8rem + 64px);
 		}
 		@media screen and (min-width: 960px) {
-			padding: 8rem 2rem 8rem calc(4rem + 292px);
+			padding: 16rem 2rem 6rem calc(6rem + 292px);
 		}
 	}
 }

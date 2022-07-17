@@ -119,27 +119,27 @@
 		</div>
 
 		<div
+			id="homepage-anchor-container"
 			fxLayout="row"
-			fxHide.lt-md
-
-			style="padding: 8rem 2rem;">
+			fxHide.lt-md>
 			<div
 				fxLayout="column"
 				class="mat-typography">
 				<h3
 					class="mat-subheading-2"
 					style="font-size: 1.75rem; z-index: 999;">
-					<a routerLink="">The Relationship Foundation</a>
+					<a
+						routerLink=""
+						[ngClass]="{'homepage-anchor--hide-animation': firstSectionHasImage$ | async}">
+						The Relationship Foundation
+					</a>
 				</h3>
 			</div>
 		</div>
 
 		<div
 			id="outlet-container"
-			fxLayout="row"
-			[ngStyle.xs]="{'margin-top.px': -56}"
-			[ngStyle.sm]="{'margin-top.px': -64}"
-			[ngStyle.gt-sm]="{'margin-top.px': -288}">
+			fxLayout="row">
 			<router-outlet></router-outlet>
 		</div>
 
@@ -223,7 +223,8 @@
 	<mat-sidenav
 		#sidenav
 		position="end"
-		style="width: 100vw; height: 100vh;">
+		fixedInViewport
+		style="width: 100vw;">
 		<div fxLayout="row">
 			<mat-toolbar
 				fxLayout="column"
