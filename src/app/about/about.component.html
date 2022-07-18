@@ -19,53 +19,42 @@
 		<div
 			fxLayout="row wrap"
 			fxLayoutGap="2rem grid">
-			<div
-				fxLayout="column"
-
-				[ngStyle.lt-md]="{'flex': 1}"
-				[ngStyle.gt-sm]="{'flex': '0 1 calc(4rem + 292px)'}">
+			<div fxLayout="column">
 				<div
 					fxLayout="row"
-					fxFlex>
-					<div
+					fxLayoutAlign="end"
+
+					style="padding-right: 2rem;"
+					[ngStyle.gt-sm]="{'width': 'calc(2rem + 292px)'}">
+					<mat-nav-list
 						fxLayout="column"
-						fxFlex
-						[ngStyle.gt-sm]="{'padding-right.rem': 2}">
-						<div
-							fxLayout="row"
-							fxLayoutAlign="end"
-							style="position: sticky; top: 1rem;">
-							<mat-nav-list
-								fxLayout="column"
-								fxFlex.lt-md
-								style="margin: -1rem;">
-								<a
-									routerLink="./"
-									fragment="mission"
-									mat-list-item>
-									Mission
-								</a>
-								<a
-									routerLink="./"
-									fragment="curriculum"
-									mat-list-item>
-									Curriculum
-								</a>
-								<a
-									routerLink="./"
-									fragment="team"
-									mat-list-item>
-									Team
-								</a>
-								<a
-									routerLink="./"
-									fragment="board"
-									mat-list-item>
-									Board
-								</a>
-							</mat-nav-list>
-						</div>
-					</div>
+						fxFlex.lt-md
+						style="margin: -1rem;">
+						<a
+							routerLink="./"
+							fragment="mission"
+							mat-list-item>
+							Mission
+						</a>
+						<a
+							routerLink="./"
+							fragment="curriculum"
+							mat-list-item>
+							Curriculum
+						</a>
+						<a
+							routerLink="./"
+							fragment="team"
+							mat-list-item>
+							Team
+						</a>
+						<a
+							routerLink="./"
+							fragment="board"
+							mat-list-item>
+							Board
+						</a>
+					</mat-nav-list>
 				</div>
 			</div>
 			<div
@@ -85,7 +74,7 @@
 									fxLayoutGap="2rem grid">
 									<div
 										fxLayout="column"
-										fxFlex="0 1 24rem">
+										fxFlex="0 1 26rem">
 										<h2
 											id="mission"
 											class="mat-display-1">
