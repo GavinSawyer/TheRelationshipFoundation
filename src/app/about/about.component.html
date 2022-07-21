@@ -1,4 +1,4 @@
-<section fxLayout="row">
+<header fxLayout="row">
 	<div
 		fxLayout="column"
 		fxFlex="0 1 24rem"
@@ -10,7 +10,7 @@
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dignissimos doloremque fugit!
 		</p>
 	</div>
-</section>
+</header>
 <mat-divider></mat-divider>
 <section fxLayout="row">
 	<div
@@ -20,16 +20,18 @@
 			fxLayout="row wrap"
 			fxLayoutGap="2rem grid">
 			<div fxLayout="column">
-				<div
+				<aside
 					fxLayout="row"
 					fxLayoutAlign="end"
 
-					style="padding-right: 2rem;"
+					style="position: sticky; top: 2rem; padding-right: 2rem;"
 					[ngStyle.gt-sm]="{'width': 'calc(2rem + 292px)'}">
 					<mat-nav-list
 						fxLayout="column"
-						fxFlex.lt-md
-						style="margin: -1rem;">
+						style="margin: 0 -1rem -1rem;">
+						<div mat-subheader>
+							On this page
+						</div>
 						<a
 							routerLink="./"
 							fragment="mission"
@@ -55,7 +57,7 @@
 							Board
 						</a>
 					</mat-nav-list>
-				</div>
+				</aside>
 			</div>
 			<div
 				fxLayout="column"

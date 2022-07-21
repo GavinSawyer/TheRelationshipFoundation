@@ -1,9 +1,12 @@
-<mat-sidenav-container style="width: 100vw;">
-	<mat-sidenav-content>
-		<div
-			fxLayout="row">
+<mat-sidenav-container
+	hasBackdrop="false"
+
+	style="overflow: visible;">
+	<mat-sidenav-content style="overflow: visible;">
+		<div fxLayout="row">
 			<mat-toolbar
 				fxLayout="column"
+
 				fxFlex
 
 				[ngClass.lt-md]="{'mat-toolbar--background-transparent': true}"
@@ -13,21 +16,26 @@
 					<div
 						fxLayout="column"
 						fxLayoutAlign="center"
+
 						fxHide.gt-sm
+
 						style="margin: 0 1rem;">
 						<div fxLayout="row">
-							<a
-								routerLink="/">
-								The Relationship Foundation
-							</a>
+							<h1>
+								<a routerLink="/">
+									The Relationship Foundation
+								</a>
+							</h1>
 						</div>
 					</div>
 					<div
 						fxLayout="column"
 						fxLayoutAlign="center"
+
 						fxFlex
+
 						fxHide.lt-md>
-						<div
+						<nav
 							fxLayout="row"
 							fxLayoutGap="14px">
 							<button
@@ -98,20 +106,16 @@
 								mat-button>
 								Contact
 							</a>
-						</div>
+						</nav>
 					</div>
 					<div
 						fxLayout="column"
-						fxLayoutAlign="center">
-						<button
-							mat-button
-							fxHide.lt-md>
-							Log in
-						</button>
+						fxLayoutAlign="center"
+
+						fxHide.gt-sm>
 						<button
 							mat-mini-fab
 							color="primary"
-							fxHide.gt-sm
 							(click)="sidenav.open();">
 							<mat-icon fontSet="material-icons-round">
 								explore
@@ -122,10 +126,11 @@
 			</mat-toolbar>
 		</div>
 
-		<div
-			id="homepage-anchor-container"
+		<header
 			fxLayout="row"
-			fxHide.lt-md>
+			fxHide.lt-md
+
+			style="padding: 16rem 2rem 2rem;">
 			<div
 				fxLayout="column"
 				class="mat-typography">
@@ -134,34 +139,34 @@
 					style="font-size: 1.75rem; z-index: 999;">
 					<a
 						routerLink=""
-						[ngClass]="{'homepage-anchor--hide-animation': firstSectionHasImage$ | async}">
+						[ngClass]="{'hide-animation': firstSectionHasImage$ | async}">
 						The Relationship Foundation
 					</a>
 				</h3>
 			</div>
-		</div>
+		</header>
 
 		<div
 			id="outlet-container"
+
 			fxLayout="row">
 			<router-outlet></router-outlet>
 		</div>
 
 		<footer fxLayout="row">
 			<div
-				fxLayout.gt-sm="row"
 				fxLayout.lt-md="column-reverse"
-
-				fxLayoutAlign.gt-sm="space-between"
+				fxLayout.gt-sm="row"
 
 				fxLayoutGap="2rem"
 
 				style="width: 100%">
 				<div
-					fxLayout.gt-sm="column"
-					fxLayout.lt-md="row">
+					fxLayout.lt-md="row"
+					fxLayout.gt-sm="column">
 					<div
 						fxLayout="column"
+
 						class="mat-typography">
 						<h3>
 							The Relationship Foundation
@@ -192,11 +197,59 @@
 					</div>
 				</div>
 				<div
+					fxLayout.lt-md="row"
 					fxLayout.gt-sm="column"
-					fxLayout.lt-md="row">
+
+					fxFlex.gt-sm="0 1 26rem">
+					<div
+						fxLayout="column">
+						<mat-card>
+							<mat-card-title-group>
+								<mat-card-title>
+									Sign up for our newsletter
+								</mat-card-title>
+							</mat-card-title-group>
+							<mat-card-content style="margin-bottom: calc(-1rem - 21.5px);">
+								<div
+									fxLayout="column"
+									fxFlex>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ducimus error laboriosam laborum nulla praesentium quisquam ratione velit. Blanditiis debitis quas quia ullam voluptatum?
+									</p>
+									<form
+										action=""
+
+										fxLayout="row"
+										fxLayoutGap="1rem">
+										<mat-form-field
+											fxLayout="column"
+											fxFlex
+
+											appearance="fill">
+											<mat-label>
+												Email
+											</mat-label>
+											<input type="email" matInput>
+											<button
+												matSuffix
+												mat-icon-button>
+												<mat-icon fontSet="material-icons-round">
+													send
+												</mat-icon>
+											</button>
+										</mat-form-field>
+									</form>
+								</div>
+							</mat-card-content>
+						</mat-card>
+					</div>
+				</div>
+				<div fxLayout.gt-sm="column" fxFlex.gt-sm fxHide.lt-md></div>
+				<div
+					fxLayout.lt-md="row"
+					fxLayout.gt-sm="column">
 					<mat-nav-list
 						fxLayout="column"
-						fxLayoutAlign="end"
 						fxFlex
 						style="margin: -1rem;">
 						<a
@@ -226,8 +279,10 @@
 	</mat-sidenav-content>
 	<mat-sidenav
 		#sidenav
-		position="end"
 		fixedInViewport
+		mode="over"
+		position="end"
+
 		style="width: 100vw;">
 		<div fxLayout="row">
 			<mat-toolbar
@@ -236,7 +291,9 @@
 				<mat-toolbar-row fxLayoutAlign="space-between">
 					<div
 						fxLayout="column"
-						fxLayoutAlign="center">
+						fxLayoutAlign="center"
+
+						style="margin: 0 1rem;">
 						<span>
 							Explore
 						</span>
@@ -245,8 +302,8 @@
 						fxLayout="column"
 						fxLayoutAlign="center">
 						<button
-							mat-mini-fab
 							fxHide.gt-sm
+							mat-mini-fab
 							(click)="sidenav.close();">
 							<mat-icon fontSet="material-icons-round">
 								close
