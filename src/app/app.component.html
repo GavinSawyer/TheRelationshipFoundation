@@ -139,7 +139,7 @@
 					style="font-size: 1.75rem; z-index: 999;">
 					<a
 						routerLink=""
-						[ngClass]="{'hide-animation': firstSectionHasImage$ | async}">
+						[ngClass]="{'hide-animation': headerHasImage$ | async}">
 						The Relationship Foundation
 					</a>
 				</h3>
@@ -201,8 +201,7 @@
 					fxLayout.gt-sm="column"
 
 					fxFlex.gt-sm="0 1 26rem">
-					<div
-						fxLayout="column">
+					<div fxLayout="column">
 						<mat-card>
 							<mat-card-title-group>
 								<mat-card-title>

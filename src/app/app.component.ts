@@ -1,66 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 
-import { Observable, Subject } from 'rxjs';
+import { Subscription, Observable, Subject } from 'rxjs';
 
 @Component({
 	selector: 'theRelationshipFoundationApp-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.sass']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
 	private title: string = 'The Relationship Foundation';
 	private description: string = "The Relationship Foundation is a nonprofit focused on the essential role of positive relationships that build resilience and cooperation. Our curriculum has reached thousands of students through workshops, assemblies, and classes.";
 
-	private firstSectionHasImageBehaviorSubject: Subject<boolean> = new Subject()
+	private routerEventsSubscription: Subscription;
+
+	private headerHasImageBehaviorSubject: Subject<boolean> = new Subject()
 
 	constructor(
-		private ActivatedRoute: ActivatedRoute,
-		private Router: Router,
-		private Meta: Meta,
-		private Title: Title,
-		private ViewportScroller: ViewportScroller,
-	) {};
-
-	public firstSectionHasImage$: Observable<boolean> = this.firstSectionHasImageBehaviorSubject.asObservable();
-
-	public scrollAfterNavigation(): void {
+		ActivatedRoute: ActivatedRoute,
+		Router: Router,
+		Meta: Meta,
+		Title: Title,
+		ViewportScroller: ViewportScroller,
+	) {
 		this
-			.ViewportScroller
-			.scrollToAnchor("mission");
-	}
-
-	ngOnInit(): void {
-		this
-			.Router
+			.routerEventsSubscription = Router
 			.events
-			.subscribe((): void => ((delve: (activatedRoute: ActivatedRoute, delve: any) => void) => delve(this.ActivatedRoute, delve))((activatedRoute: ActivatedRoute, delve: (activatedRoute: ActivatedRoute, delve: any) => void): void => {
+			.subscribe((): void => ((delve: (activatedRoute: ActivatedRoute, delve: any) => void) => delve(ActivatedRoute, delve))((activatedRoute: ActivatedRoute, delve: (activatedRoute: ActivatedRoute, delve: any) => void): void => {
 				setTimeout((): void => {
-					this
-						.ActivatedRoute
+					ActivatedRoute
 						.snapshot
-						.fragment && this
-						.ViewportScroller
-						.scrollToAnchor(this.ActivatedRoute.snapshot.fragment)
+						.fragment && ViewportScroller
+						.scrollToAnchor(ActivatedRoute.snapshot.fragment)
 				}, 0);
 
 				(activatedRoute.firstChild) ? delve(activatedRoute.firstChild, delve) : ((): void => {
 					this
-						.firstSectionHasImageBehaviorSubject
-						.next(activatedRoute.snapshot.data['firstSectionHasImage']);
+						.headerHasImageBehaviorSubject
+						.next(activatedRoute.snapshot.data['headerHasImage']);
 
-					this
-						.Title
+					Title
 						.setTitle(activatedRoute.snapshot.data['title'] ? this.title + ' – ' + activatedRoute.snapshot.data['title'] : this.title);
 
 					((metaDefinition: MetaDefinition): void => {
-						(this.Meta.getTags("name='description'").length == 0) ? this
-							.Meta
-							.addTag(metaDefinition) : this
-							.Meta
+						(Meta.getTags("name='description'").length == 0) ? Meta
+							.addTag(metaDefinition) : Meta
 							.updateTag(metaDefinition);
 					})({
 						name: "description",
@@ -68,5 +55,9 @@ export class AppComponent implements OnInit {
 					});
 				})();
 			}));
+
+
 	};
+
+	public headerHasImage$: Observable<boolean> = this.headerHasImageBehaviorSubject.asObservable();
 }
